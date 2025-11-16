@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Extra tiny helpers if you skip Tailwind setup: */
+.Input {
+width: 100%;
+border-radius: 0.75rem;
+border: 1px solid #d1d5db;
+padding: 0.5rem 0.75rem;
+}
+
+/* Falling straight down */
+@keyframes fall {
+  0% { transform: translateY(-120vh); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(120vh); opacity: 0; }
+}
+
+.emoji-fall {
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+
+/* Rising up */
+@keyframes rise {
+  0% { transform: translateY(120vh); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-120vh); opacity: 0; }
+}
+
+.emoji-rise {
+  animation-name: rise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+
+/* Diagonal left → right */
+@keyframes diag-left {
+  0% { transform: translate(-50vw, -50vh); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translate(50vw, 120vh); opacity: 0; }
+}
+
+.emoji-diagonal-left {
+  animation-name: diag-left;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+
+/* Diagonal right → left */
+@keyframes diag-right {
+  0% { transform: translate(50vw, -50vh); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translate(-50vw, 120vh); opacity: 0; }
+}
+
+.emoji-diagonal-right {
+  animation-name: diag-right;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
