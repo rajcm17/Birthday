@@ -3,6 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MEMORIES } from '../data/config';
 import Lightbox from './Lightbox';
 
+const TAP_SOUND = '/photo-tap.mp3';     // short click sound
+const BG_MUSIC = './song2.mp3';    // looping background music
+
 const Page = ({ children }) => (
   <div className="min-h-screen w-full bg-pink-400/70 text-gray-100">
     <div className="mx-auto max-w-6xl px-4 py-12">{children}</div>
@@ -18,8 +21,48 @@ export default function Memories({
   markViewed,
   onNext,
 }) {
+  const tapRef = React.useRef(null);
+  const bgRef = React.useRef(null);
+  const [bgPlaying, setBgPlaying] = React.useState(false);
+
+  // Play sound when a thumbnail is clicked (user gesture — allowed by browsers)
+  const handlePhotoClick = async (idx) => {
+    // play tap sound
+    const tap = tapRef.current;
+    if (tap) {
+      try {
+        tap.pause();
+        tap.currentTime = 0;
+        tap.volume = 0.6;
+        await tap.play();
+      } catch (e) {
+        // ignore
+      }
+    }
+
+    // start background music on first click (if not already playing)
+    const bg = bgRef.current;
+    if (bg && !bgPlaying) {
+      try {
+        bg.loop = true;
+        bg.volume = 0.6;
+        await bg.play();
+        setBgPlaying(true);
+      } catch (e) {
+        // if browser blocks (rare after user gesture), leave bgPlaying false
+      }
+    }
+
+    // open lightbox (lightbox will call markViewed)
+    setLightbox(idx);
+  };
+
   return (
     <Page>
+      {/* hidden audio elements */}
+      <audio ref={tapRef} src={TAP_SOUND} preload="auto" style={{ display: 'none' }} />
+      <audio ref={bgRef} src={BG_MUSIC} preload="auto" style={{ display: 'none' }} />
+
       <motion.div
         initial="hidden"
         animate="show"
@@ -53,7 +96,7 @@ export default function Memories({
           {MEMORIES.map((m, idx) => (
             <motion.button
               key={idx}
-              onClick={() => setLightbox(idx)}
+              onClick={() => handlePhotoClick(idx)}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               variants={{
@@ -136,7 +179,12 @@ export default function Memories({
 
       <AnimatePresence>
         {Number.isInteger(lightbox) && (
-          <Lightbox key={`light-${lightbox}`} idx={lightbox} onClose={() => setLightbox(null)} onViewed={() => markViewed(lightbox)} />
+          <Lightbox
+            key={`light-${lightbox}`}
+            idx={lightbox}
+            onClose={() => setLightbox(null)}
+            onViewed={() => markViewed(lightbox)}
+          />
         )}
       </AnimatePresence>
     </Page>

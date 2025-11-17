@@ -73,7 +73,7 @@ export default function SurpriseGate({ onReveal }) {
 
   // Riddle lock
   React.useEffect(() => {
-    if (answer === "b") {
+    if (answer === "a") {
       setRiddleOk(true);
       setTimeout(() => setStage(3), 700);
     } else if (answer) {
@@ -172,14 +172,13 @@ export default function SurpriseGate({ onReveal }) {
               </div>
 
               <div className="p-4 rounded-xl bg-white/10 text-sm text-pink-50">
-                <strong>Riddle:</strong> What grows bigger the more we share it?
-              </div>
+                <strong>Riddle:</strong> 🫣ನಿನ್ನ ಯಾವ ಫೋಟೋ ನನಗೆ ಬಹಳ ಇಷ್ಟ  .....?🤔  </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
-                  { k: "a", t: "Cake" },
-                  { k: "b", t: "Joy" },
-                  { k: "c", t: "Sleep" },
+                  { k: "a", t: "with saree" },
+                  { k: "b", t: "with joodi daar" },
+                  { k: "c", t: "Langa davani" },
                 ].map((opt) => (
                   <motion.button
                     key={opt.k}

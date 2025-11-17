@@ -70,7 +70,7 @@ export default function Landing({ onStart }) {
   // message & typing setup
   const fullText = MAIN_MESSAGE.trim();
   // calculate interval such that full text finishes ~20 seconds (20000ms)
-  const totalMs = 1000;
+  const totalMs = 24000;
   const perCharMs = Math.max(12, Math.floor(totalMs / Math.max(1, fullText.length)));
 
   // typed animation: we start typing only after startPressed
@@ -267,8 +267,7 @@ export default function Landing({ onStart }) {
             </div>
           </div>
 
-          <div className="mt-5 text-sm text-gray-700/85">🎈 Confetti, balloons, and your song — ready when you are!</div>
-
+        
           <div className="mt-6 flex justify-center">
             {showStart ? (
               <button
