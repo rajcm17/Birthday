@@ -4,10 +4,11 @@ import Landing from './components/Landing';
 import Memories from './components/Memories';
 import SurpriseGate from './components/SurpriseGate';
 import Reveal from './components/Reveal';
+import EndPage from './components/EndPage';
 import { MEMORIES } from './data/config';
 
 export default function App() {
-  const [step, setStep] = React.useState(0); // 0: landing, 1: memories, 2: gate, 3: reveal
+  const [step, setStep] = React.useState(0); // 0: landing, 1: memories, 2: gate, 3: reveal, 4: end
   const [viewed, setViewed] = React.useState(Array(MEMORIES.length).fill(false));
   const [lightbox, setLightbox] = React.useState(null); // index
 
@@ -16,6 +17,12 @@ export default function App() {
 
   function markViewed(idx) {
     setViewed((v) => v.map((b, i) => (i === idx ? true : b)));
+  }
+
+  function resetExperience() {
+    setViewed(Array(MEMORIES.length).fill(false));
+    setLightbox(null);
+    setStep(0);
   }
 
   return (
@@ -33,7 +40,8 @@ export default function App() {
         />
       )}
       {step === 2 && <SurpriseGate onReveal={() => setStep(3)} />}
-      {step === 3 && <Reveal />}
+      {step === 3 && <Reveal onFinish={() => setStep(4)} />}
+      {step === 4 && <EndPage onReplay={resetExperience} />}
     </AnimatePresence>
   );
 }

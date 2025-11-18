@@ -213,18 +213,7 @@ export default function Landing({ onStart }) {
       >
         {/* beautiful welcome name */}
         <div className="mb-1">
-          {/* import Google font and custom styles */}
-          <style>{`
-            @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-            .gv { font-family: 'Great Vibes', cursive; }
-            @keyframes soft-glow {
-              0% { text-shadow: 0 6px 12px rgba(217,42,107,0.10); transform: translateY(0); }
-              50% { text-shadow: 0 10px 28px rgba(217,42,107,0.18); transform: translateY(-2px); }
-              100% { text-shadow: 0 6px 12px rgba(217,42,107,0.10); transform: translateY(0); }
-            }
-          `}</style>
-
-          <div className="gv" style={{ fontSize: "3.2rem", lineHeight: 1 }}>
+          <div className="text-4xl md:text-5xl font-semibold tracking-tight" style={{ lineHeight: 1.1 }}>
             <span style={titleGradient}>Hey {FRIEND.name} ✨</span>
           </div>
 

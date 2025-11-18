@@ -40,7 +40,7 @@ const GlassCard = ({ children }) => (
 );
 
 /* -------------------------- Component -------------------------- */
-export default function Reveal() {
+export default function Reveal({ onFinish }) {
   const [typed, setTyped] = React.useState("");
   const [isOpen, setIsOpen] = React.useState(false);
   const audioRef = React.useRef(null);
@@ -219,6 +219,16 @@ Enjoy every moment, birthday girl! 🎉💗🌟🍰✨
             boxShadow: "0 0 16px rgba(255, 120, 180, 0.6)",
           }}
         />
+
+        <div className="pt-6">
+          <motion.button
+            whileTap={{ scale: 0.96 }}
+            onClick={() => onFinish && onFinish()}
+            className="px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold shadow-lg hover:shadow-xl transition"
+          >
+            Continue to the finale →
+          </motion.button>
+        </div>
       </div>
     </Page>
   );
