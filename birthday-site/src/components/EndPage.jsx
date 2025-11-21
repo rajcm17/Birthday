@@ -30,13 +30,14 @@ export default function EndPage({ onReplay }) {
           transition={{ delay: 0.1, duration: 0.6 }}
           className="text-3xl md:text-4xl font-extrabold text-rose-600"
         >
-          With all my love, {FRIEND.name} 💗
+          With all your Memory, {FRIEND.name} 💗
         </motion.h2>
 
         <p className="text-lg leading-relaxed text-gray-700">
-          Thank you for travelling through these memories with me. Every smile, every story,
-          and every heartbeat here belongs to us. Let this little space stay with you whenever
-          you need a reminder of how loved you are.
+         ಈ ನೆನಪಿನ ಪ್ರಯಾಣ ನನ್ನಿಗಿಂತ ನಿನ್ನದ್ದೇ ಹೆಚ್ಚು ವಿಶೇಷ.
+ಪ್ರತಿ ನಗು, ಪ್ರತಿ ಕ್ಷಣ, ಪ್ರತಿ little memory—ನಮ್ಮದು.
+ಯಾವಾಗ ಬೇಕಾದರೂ ಇದ್ರಲ್ಲಿ ಒಮ್ಮೆ ನೋಡೋ…
+ನೀನು ಎಷ್ಟು special,ಅನ್ನೋದು ನೆನಪಾಗುತ್ತೆ.
         </p>
 
         <div className="grid gap-4 text-left md:grid-cols-2">
@@ -50,7 +51,7 @@ export default function EndPage({ onReplay }) {
           <div className="rounded-2xl bg-rose-50 p-4 border border-rose-100">
             <h3 className="text-base font-semibold text-rose-600">Next adventure</h3>
             <p className="text-sm text-gray-600 mt-1">
-              Keep this link handy for tough days, and let’s create new stories to add very soon.
+            </> <b> Keep this link </p>b>handy for tough days, and let’s create new stories to add very soon.
             </p>
           </div>
         </div>
