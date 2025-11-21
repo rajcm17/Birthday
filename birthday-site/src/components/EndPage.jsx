@@ -24,6 +24,7 @@ export default function EndPage({ onReplay }) {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="bg-white/80 rounded-3xl shadow-2xl border border-rose-100/80 px-8 py-10 text-center space-y-6"
       >
+        {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -33,29 +34,34 @@ export default function EndPage({ onReplay }) {
           With all your Memory, {FRIEND.name} 💗
         </motion.h2>
 
+        {/* Kannada message */}
         <p className="text-lg leading-relaxed text-gray-700">
-         ಈ ನೆನಪಿನ ಪ್ರಯಾಣ ನನ್ನಿಗಿಂತ ನಿನ್ನದ್ದೇ ಹೆಚ್ಚು ವಿಶೇಷ.
-ಪ್ರತಿ ನಗು, ಪ್ರತಿ ಕ್ಷಣ, ಪ್ರತಿ little memory—ನಮ್ಮದು.
-ಯಾವಾಗ ಬೇಕಾದರೂ ಇದ್ರಲ್ಲಿ ಒಮ್ಮೆ ನೋಡೋ…
-ನೀನು ಎಷ್ಟು special,ಅನ್ನೋದು ನೆನಪಾಗುತ್ತೆ.
+          ಈ ನೆನಪಿನ ಪ್ರಯಾಣ ನನ್ನಿಗಿಂತ ನಿನ್ನದ್ದೇ ಹೆಚ್ಚು ವಿಶೇಷ.
+          ಪ್ರತಿ ನಗು, ಪ್ರತಿ ಕ್ಷಣ, ಪ್ರತಿ little memory—ನಮ್ಮದು.
+          ಯಾವಾಗ ಬೇಕಾದರೂ ಇದ್ರಲ್ಲಿ ಒಮ್ಮೆ ನೋಡೋ…
+          ನೀನು ಎಷ್ಟು special ಅನ್ನೋದು ನೆನಪಾಗುತ್ತೆ.
         </p>
 
+        {/* Cards */}
         <div className="grid gap-4 text-left md:grid-cols-2">
+          {/* Card 1 */}
           <div className="rounded-2xl bg-rose-50 p-4 border border-rose-100">
             <h3 className="text-base font-semibold text-rose-600">Remember</h3>
             <p className="text-sm text-gray-600 mt-1">
-              You are cherished far beyond birthdays. I’m cheering for you today, tomorrow, and
-              always.
+              You are cherished far beyond birthdays. I’m cheering for you today, tomorrow, and always.
             </p>
           </div>
+
+          {/* Card 2 - FIXED VERSION */}
           <div className="rounded-2xl bg-rose-50 p-4 border border-rose-100">
             <h3 className="text-base font-semibold text-rose-600">Next adventure</h3>
             <p className="text-sm text-gray-600 mt-1">
-            </> <b> Keep this link </p>b>handy for tough days, and let’s create new stories to add very soon.
+              <b>Keep this link</b> handy for tough days, and let’s create new stories to add very soon.
             </p>
           </div>
         </div>
 
+        {/* Replay button */}
         <div className="space-y-3">
           <p className="text-base text-gray-600">Want to experience it again?</p>
           <button
@@ -69,4 +75,3 @@ export default function EndPage({ onReplay }) {
     </Page>
   );
 }
-
